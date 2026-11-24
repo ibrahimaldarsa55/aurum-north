@@ -252,13 +252,16 @@ export type Project = {
   features: string[];
   stack: string[];
   palette: { name: string; hex: string }[];
+  /** Optional link to a live, deployed version of the concept. Opens in a new tab. */
+  liveUrl?: string;
 };
 
 export const projects: Project[] = [
   {
     slug: "luxury-ecommerce",
     variant: "luxury",
-    name: "Maison Vale",
+    name: "Halden & Vale",
+    liveUrl: "https://vercel.app",
     category: "Luxury e-commerce · Shopify concept",
     summary:
       "An editorial Shopify storefront concept for a luxury leather-goods label, pairing magazine-style storytelling with a refined shopping experience.",

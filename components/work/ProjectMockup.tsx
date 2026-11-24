@@ -109,7 +109,7 @@ function Luxury() {
           <span className="h-[3px] w-5 rounded bg-[#2A211B]/40" />
           <span className="h-[3px] w-5 rounded bg-[#2A211B]/40" />
         </div>
-        <span className="font-display text-[clamp(8px,3.3cqw,32px)] tracking-[0.35em]">MAISON VALE</span>
+        <span className="font-display text-[clamp(8px,3.3cqw,32px)] tracking-[0.25em] whitespace-nowrap">HALDEN &amp; VALE</span>
         <span className="relative size-[clamp(8px,2.6cqw,28px)] rounded-sm border border-[#2A211B]/60">
           <span className="absolute -top-1 -right-1 size-1.5 rounded-full bg-[#B08D57]" />
         </span>
