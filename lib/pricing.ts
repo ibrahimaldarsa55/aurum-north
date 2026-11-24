@@ -5,15 +5,15 @@
  */
 
 export const pricingMeta = {
-  currency: "CAD",
-  taxNote: "Prices in Canadian dollars, plus applicable taxes.",
+  currency: "USD",
+  taxNote: "All prices in USD, plus applicable taxes.",
   billingNote: "Billed monthly. No long-term contract — cancel with 30 days' notice.",
 };
 
 export type Plan = {
   id: "starter" | "professional" | "premium";
   name: string;
-  price: number; // per month, CAD
+  price: number; // per month, USD
   tagline: string;
   idealFor: string;
   featured?: boolean;
@@ -116,7 +116,7 @@ export const planTerms = [
 export type OneTimeProject = {
   title: string;
   description: string;
-  /** Set a number (CAD) to show "From $X", or leave null to show "Custom quote". */
+  /** Set a number (USD) to show "From $X USD", or leave null to show "Custom quote". */
   startingAt: number | null;
   serviceId: string; // anchor on /services
 };
@@ -177,8 +177,18 @@ export const pricingFaqs = [
   },
 ];
 
+/** Amount only, e.g. "$99". Use where "USD" is shown separately next to it. */
+export function formatAmount(n: number) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: pricingMeta.currency,
+    maximumFractionDigits: 0,
+  }).format(n);
+}
+
+/** Amount with currency code, e.g. "$99 USD". */
 export function formatPrice(n: number) {
-  return new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 0 }).format(n);
+  return `${formatAmount(n)} ${pricingMeta.currency}`;
 }
 
 export const planOptionLabels = plans.map((p) => `Care plan — ${p.name} (${formatPrice(p.price)}/mo)`);

@@ -1,21 +1,35 @@
 import Link from "next/link";
 import { ArrowUpRight, Check, Minus } from "lucide-react";
-import { formatPrice, planOptionLabels, plans, pricingMeta } from "@/lib/pricing";
+import { formatAmount, planOptionLabels, plans, pricingMeta } from "@/lib/pricing";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function planContactHref(index: number) {
   return `/contact?service=${encodeURIComponent(planOptionLabels[index])}`;
 }
 
-/** The three subscription plan cards. `compact` hides the limits (used on the home page). */
+/**
+ * The three subscription plan cards. `compact` hides the limits (used on the home page).
+ *
+ * Cards use CSS subgrid: every card shares the same row tracks, so the title, price,
+ * inclusions, "Plan limits" heading and button line up horizontally across all three,
+ * even when one card's list is longer or wraps onto more lines.
+ */
 export function PlanCards({ compact = false }: { compact?: boolean }) {
+  // One row per direct child of <article> below. Keep in sync if you add or remove rows.
+  const rowSpan = compact ? "row-span-7" : "row-span-9";
+
   return (
     <>
-      <ul className="grid gap-6 lg:grid-cols-3 lg:items-stretch">
+      <ul className="grid gap-x-6 lg:grid-cols-3">
         {plans.map((plan, i) => (
-          <Reveal as="li" key={plan.id} delay={i * 0.08} className="h-full">
+          <Reveal
+            as="li"
+            key={plan.id}
+            delay={i * 0.08}
+            className={`${rowSpan} mb-8 grid grid-rows-subgrid gap-0 last:mb-0 lg:mb-0`}
+          >
             <article
-              className={`relative flex h-full flex-col rounded-3xl p-8 transition-all duration-500 ease-luxe hover:-translate-y-1 sm:p-10 ${
+              className={`relative ${rowSpan} grid grid-rows-subgrid gap-0 rounded-3xl p-8 transition-all duration-500 ease-luxe hover:-translate-y-1 sm:p-10 ${
                 plan.featured
                   ? "border border-gold/60 bg-gradient-to-b from-gold/[0.12] via-ink-2 to-ink-2 shadow-[0_30px_100px_-40px_rgba(198,161,91,0.55)]"
                   : "border border-line bg-ink-2/70 hover:border-gold/30"
@@ -28,19 +42,24 @@ export function PlanCards({ compact = false }: { compact?: boolean }) {
                 </span>
               )}
 
+              {/* 1 */}
               <h3 id={`plan-${plan.id}`} className="font-display text-3xl text-white">
                 {plan.name}
               </h3>
-              <p className="mt-3 min-h-12 text-sm leading-relaxed text-muted">{plan.tagline}</p>
-
-              <p className="mt-8 flex items-baseline gap-2">
-                <span className="font-display text-6xl leading-none text-gold-gradient">{formatPrice(plan.price)}</span>
-                <span className="text-sm text-muted">/ month</span>
+              {/* 2 */}
+              <p className="mt-3 text-sm leading-relaxed text-muted">{plan.tagline}</p>
+              {/* 3 */}
+              <p className="mt-8 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                <span className="font-display text-6xl leading-none text-gold-gradient">{formatAmount(plan.price)}</span>
+                <span className="text-sm text-muted">
+                  <span className="font-semibold text-white/80">{pricingMeta.currency}</span> / month
+                </span>
               </p>
+              {/* 4 */}
               <p className="mt-3 text-xs tracking-[0.15em] text-white/50 uppercase">{plan.idealFor}</p>
-
+              {/* 5 */}
               <div className="gold-hairline my-8 h-px" aria-hidden />
-
+              {/* 6 */}
               <ul className="space-y-3.5 text-sm">
                 {plan.includes.map((item) => (
                   <li key={item} className="flex gap-3 text-white/90">
@@ -54,7 +73,11 @@ export function PlanCards({ compact = false }: { compact?: boolean }) {
 
               {!compact && (
                 <>
-                  <p className="mt-8 text-[0.65rem] font-semibold tracking-[0.25em] text-white/50 uppercase">Plan limits</p>
+                  {/* 7 */}
+                  <p className="mt-8 self-end text-[0.65rem] font-semibold tracking-[0.25em] text-white/50 uppercase">
+                    Plan limits
+                  </p>
+                  {/* 8 */}
                   <ul className="mt-4 space-y-2.5 text-sm">
                     {plan.limits.map((item) => (
                       <li key={item} className="flex gap-3 text-muted">
@@ -66,7 +89,8 @@ export function PlanCards({ compact = false }: { compact?: boolean }) {
                 </>
               )}
 
-              <div className="mt-auto pt-10">
+              {/* last row */}
+              <div className="self-end pt-10">
                 <Link
                   href={planContactHref(i)}
                   className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition-all duration-500 ease-luxe ${

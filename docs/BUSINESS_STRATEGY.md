@@ -33,7 +33,7 @@ The public website deliberately presents the agency as multi-industry. Niche-spe
 
 ### 2. Monthly care plans (recurring revenue)
 
-| Plan | Price (CAD/mo) | Included content hours | Support response |
+| Plan | Price (USD/mo) | Included content hours | Support response |
 | --- | --- | --- | --- |
 | Starter | $99 | 0 (billed separately) | 3 business days |
 | Professional | $199 | 2 hrs | 1 business day |
@@ -45,7 +45,7 @@ All plans are month-to-month with 30 days' notice, cover one site, and exclude h
 
 These are rough estimates. Replace them with your real time-tracking data.
 
-| Plan | Est. hours at full use | Effective rate at full use |
+| Plan | Est. hours at full use | Effective rate at full use (USD) |
 | --- | --- | --- |
 | Starter | ~0.75 hr (updates are mostly automated) | ~$130/hr |
 | Professional | ~3 hrs (1 hr maintenance + 2 hrs content) | ~$66/hr |
@@ -55,7 +55,7 @@ These are rough estimates. Replace them with your real time-tracking data.
 - **Hours don't roll over.** This prevents a large backlog building up.
 - **New pages, features and redesigns are excluded.** They become new one-time projects, which is an upsell.
 - **One site per plan**, and sites built by others require a paid onboarding audit.
-- Budget for tooling of about $5–20 per site per month (backup, uptime and security tools).
+- Budget for tooling of about $5–20 USD per site per month (backup, uptime and security tools).
 - Review the plans quarterly. If a plan regularly drops below your target hourly rate, raise the price or reduce its included hours in `lib/pricing.ts`.
 
 ## Client journey

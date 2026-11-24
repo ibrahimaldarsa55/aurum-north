@@ -148,7 +148,7 @@ export function ContactForm({ configured }: { configured: boolean }) {
         <Field label="Service required" htmlFor="service">
           <Select id="service" value={fields.service} onChange={update("service")} options={serviceOptions} />
         </Field>
-        <Field label="Project budget (CAD)" htmlFor="budget">
+        <Field label="Project budget (USD)" htmlFor="budget">
           <Select id="budget" value={fields.budget} onChange={update("budget")} options={budgetOptions} />
         </Field>
         <Field label="Project details" htmlFor="details" required className="sm:col-span-2">

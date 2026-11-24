@@ -11,7 +11,7 @@ import { OneTimeProjects } from "@/components/pricing/OneTimeProjects";
 
 export const metadata: Metadata = {
   title: "Pricing & Plans",
-  description: `One-time website, Shopify, UI/UX and branding projects, plus monthly website care plans from ${formatPrice(plans[0].price)}/month (CAD).`,
+  description: `One-time website, Shopify, UI/UX and branding projects, plus monthly website care plans from ${formatPrice(plans[0].price)}/month.`,
 };
 
 export default function PricingPage() {
