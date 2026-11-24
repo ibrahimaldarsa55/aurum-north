@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
-import { formatPrice, planTerms, plans, pricingFaqs } from "@/lib/pricing";
+import { formatPrice, lowestBuildPrice, planTerms, plans, pricingFaqs } from "@/lib/pricing";
 import { PageHero } from "@/components/sections/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -11,7 +11,7 @@ import { OneTimeProjects } from "@/components/pricing/OneTimeProjects";
 
 export const metadata: Metadata = {
   title: "Pricing & Plans",
-  description: `One-time website, Shopify, UI/UX and branding projects, plus monthly website care plans from ${formatPrice(plans[0].price)}/month.`,
+  description: `One-time website, Shopify and brand design builds from ${formatPrice(lowestBuildPrice)}, plus optional monthly care plans from ${formatPrice(plans[0].price)}/month.`,
 };
 
 export default function PricingPage() {
@@ -28,8 +28,10 @@ export default function PricingPage() {
       >
         <Reveal delay={0.15} className="mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
           <a href="#projects" className="card-surface group p-6 transition-colors hover:border-gold/40">
-            <p className="text-xs tracking-[0.2em] text-gold uppercase">01 · One-time projects</p>
-            <p className="mt-2 text-sm text-white/80">Websites, stores, UI/UX and branding — quoted per project.</p>
+            <p className="text-xs tracking-[0.2em] text-gold uppercase">01 · One-time project builds</p>
+            <p className="mt-2 text-sm text-white/80">
+              From {formatPrice(lowestBuildPrice)}. Websites, stores and brand design — no subscription needed.
+            </p>
           </a>
           <a href="#plans" className="card-surface group p-6 transition-colors hover:border-gold/40">
             <p className="text-xs tracking-[0.2em] text-gold uppercase">02 · Monthly care plans</p>
@@ -43,13 +45,13 @@ export default function PricingPage() {
       <section id="projects" className="scroll-mt-24 py-20 sm:py-28">
         <div className="container-x">
           <SectionHeading
-            eyebrow="One-time projects"
+            eyebrow="One-time project builds"
             title={
               <>
-                Pay once. <span className="text-gold-gradient italic">Own it outright.</span>
+                Hire us for a single build. <span className="text-gold-gradient italic">No subscription.</span>
               </>
             }
-            intro="Every project is scoped around your goals and quoted upfront, with no subscription required. Once it's paid in full, the website is yours."
+            intro="Need a website, store or brand — and nothing ongoing? Choose a one-off build. Every project is scoped around your goals and quoted upfront, and once it's paid in full, it's yours. Care plans below are entirely optional."
           />
           <div className="mt-14">
             <OneTimeProjects />

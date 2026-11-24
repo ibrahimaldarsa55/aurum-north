@@ -25,7 +25,7 @@ import {
   Landmark,
   type LucideIcon,
 } from "lucide-react";
-import { formatPrice, planOptionLabels, plans } from "./pricing";
+import { buildOptionLabel, formatPrice, planOptionLabels, plans, projectBuilds } from "./pricing";
 
 /* ------------------------------------------------------------------ */
 /* Industries                                                          */
@@ -352,11 +352,15 @@ export function getProject(slug: string) {
 /* Contact form options                                                */
 /* ------------------------------------------------------------------ */
 
-export const serviceOptions = [
-  ...services.filter((s) => s.id !== "maintenance").map((s) => s.title),
-  ...planOptionLabels,
-  "Not sure yet",
+/** Grouped "Service required" options. Links can preselect any of these via ?service=. */
+export const serviceOptionGroups: { label: string; options: string[] }[] = [
+  { label: "One-time project builds", options: projectBuilds.map(buildOptionLabel) },
+  { label: "Services", options: services.filter((s) => s.id !== "maintenance").map((s) => s.title) },
+  { label: "Monthly care plans", options: planOptionLabels },
+  { label: "Other", options: ["Not sure yet"] },
 ];
+
+export const serviceOptions = serviceOptionGroups.flatMap((g) => g.options);
 
 export const budgetOptions = [
   "Under $3,000",

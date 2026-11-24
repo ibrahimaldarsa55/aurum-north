@@ -19,17 +19,15 @@ The public website deliberately presents the agency as multi-industry. Niche-spe
 
 ### 1. One-time projects (primary revenue, cash up-front)
 
-| Project | Notes |
-| --- | --- |
-| Business website | Custom build |
-| WordPress website | Custom lean theme |
-| Shopify & e-commerce | Store design and build |
-| UI/UX design | Audits, wireframes, prototypes |
-| Branding & digital design | Identity, guidelines, assets |
+| Build | Starting at (USD) | Includes |
+| --- | --- | --- |
+| Business & Service Website | $1,500 | Custom design, responsive Next.js or WordPress build, on-page SEO, lead/booking forms |
+| E-Commerce & Shopify Store | $2,800 | Custom storefront, product & variant architecture, checkout setup, mobile conversion optimization |
+| Brand & UI/UX Design | $1,200 | Visual identity, design system, high-converting page layouts |
 
-- Quoted per project after discovery. **No subscription required.**
+- Starting prices are published; the final quote follows a discovery call. **No subscription required.**
 - Suggested terms: 50% deposit, 50% on launch. The client owns the site once it is paid in full.
-- Starting prices can be shown on the site by setting `startingAt` in `lib/pricing.ts`.
+- Edit prices and inclusions in `projectBuilds` in `lib/pricing.ts`.
 
 ### 2. Monthly care plans (recurring revenue)
 

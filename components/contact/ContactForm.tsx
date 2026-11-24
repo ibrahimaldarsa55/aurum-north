@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Info, LoaderCircle, Mail, Send } from "lucide-react";
-import { budgetOptions, serviceOptions } from "@/lib/content";
+import { budgetOptions, serviceOptionGroups, serviceOptions } from "@/lib/content";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error" | "unconfigured";
@@ -145,10 +145,10 @@ export function ContactForm({ configured }: { configured: boolean }) {
             onChange={update("email")}
           />
         </Field>
-        <Field label="Service required" htmlFor="service">
-          <Select id="service" value={fields.service} onChange={update("service")} options={serviceOptions} />
+        <Field label="Service required" htmlFor="service" className="sm:col-span-2">
+          <Select id="service" value={fields.service} onChange={update("service")} groups={serviceOptionGroups} />
         </Field>
-        <Field label="Project budget (USD)" htmlFor="budget">
+        <Field label="Project budget (USD)" htmlFor="budget" className="sm:col-span-2">
           <Select id="budget" value={fields.budget} onChange={update("budget")} options={budgetOptions} />
         </Field>
         <Field label="Project details" htmlFor="details" required className="sm:col-span-2">
@@ -250,21 +250,32 @@ function Select({
   value,
   onChange,
   options,
+  groups,
 }: {
   id: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  options: readonly string[];
+  options?: readonly string[];
+  groups?: readonly { label: string; options: readonly string[] }[];
 }) {
+  const renderOptions = (list: readonly string[]) =>
+    list.map((o) => (
+      <option key={o} value={o} className="bg-ink-2">
+        {o}
+      </option>
+    ));
+
   return (
     <div className="relative">
       <select id={id} className="field appearance-none pr-10" value={value} onChange={onChange}>
         <option value="">Select an option</option>
-        {options.map((o) => (
-          <option key={o} value={o} className="bg-ink-2">
-            {o}
-          </option>
-        ))}
+        {groups
+          ? groups.map((g) => (
+              <optgroup key={g.label} label={g.label} className="bg-ink-2">
+                {renderOptions(g.options)}
+              </optgroup>
+            ))
+          : renderOptions(options ?? [])}
       </select>
       <svg aria-hidden viewBox="0 0 20 20" className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2">
         <path d="M5.5 7.5 10 12l4.5-4.5" stroke="currentColor" strokeWidth="1.5" fill="none" className="stroke-gold" />

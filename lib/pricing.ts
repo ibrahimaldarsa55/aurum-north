@@ -110,49 +110,58 @@ export const planTerms = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* One-time projects                                                    */
+/* One-time project builds                                              */
 /* ------------------------------------------------------------------ */
 
-export type OneTimeProject = {
+export type ProjectBuild = {
+  id: "business-website" | "ecommerce-store" | "brand-design";
   title: string;
+  /** Starting price in USD. Edit here — cards, contact form and page copy update automatically. */
+  startingAt: number;
   description: string;
-  /** Set a number (USD) to show "From $X USD", or leave null to show "Custom quote". */
-  startingAt: number | null;
-  serviceId: string; // anchor on /services
+  includes: string[];
 };
 
-export const oneTimeProjects: OneTimeProject[] = [
+export const projectBuilds: ProjectBuild[] = [
   {
-    title: "Business Website",
-    description: "A custom, high-performance website designed around your brand and goals.",
-    startingAt: null,
-    serviceId: "web-development",
+    id: "business-website",
+    title: "Business & Service Website",
+    startingAt: 1500,
+    description: "A bespoke website that presents your business with authority and turns visitors into enquiries.",
+    includes: [
+      "Custom design tailored to your brand",
+      "Responsive Next.js or WordPress build",
+      "On-page SEO foundations",
+      "Lead & booking forms",
+    ],
   },
   {
-    title: "WordPress Website",
-    description: "A lean, custom WordPress theme your team can easily update.",
-    startingAt: null,
-    serviceId: "wordpress",
+    id: "ecommerce-store",
+    title: "E-Commerce & Shopify Store",
+    startingAt: 2800,
+    description: "An elegant online store engineered to showcase your products and convert on every device.",
+    includes: [
+      "Custom storefront design",
+      "Product & variant architecture",
+      "Checkout setup",
+      "Mobile conversion optimization",
+    ],
   },
   {
-    title: "Shopify & E-commerce",
-    description: "A conversion-focused online store, from product pages to checkout.",
-    startingAt: null,
-    serviceId: "shopify",
-  },
-  {
-    title: "UI/UX Design",
-    description: "Research-led journeys, wireframes and polished interface design.",
-    startingAt: null,
-    serviceId: "ui-ux",
-  },
-  {
-    title: "Branding & Digital Design",
-    description: "Logo, visual identity and digital assets that build recognition.",
-    startingAt: null,
-    serviceId: "branding",
+    id: "brand-design",
+    title: "Brand & UI/UX Design",
+    startingAt: 1200,
+    description: "A distinctive identity and interface system that makes your business instantly recognisable.",
+    includes: ["Visual identity", "Design system", "High-converting page layouts"],
   },
 ];
+
+/** Contact-form option for a build, e.g. "Business & Service Website (from $1,500 USD)". */
+export function buildOptionLabel(b: ProjectBuild) {
+  return `${b.title} (from ${formatPrice(b.startingAt)})`;
+}
+
+export const lowestBuildPrice = Math.min(...projectBuilds.map((b) => b.startingAt));
 
 export const pricingFaqs = [
   {
