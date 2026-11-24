@@ -102,7 +102,7 @@ export function Hero() {
                 animate={{ opacity: 0.8, x: 0 }}
                 transition={{ duration: 1.2, delay: 0.65, ease }}
               >
-                <ProjectMockup variant="luxury" />
+                <ProjectMockup variant="automotive" />
               </motion.div>
             </div>
             <div className="absolute top-1/2 left-1/2 w-[72%] -translate-x-1/2 -translate-y-1/2">
@@ -112,7 +112,7 @@ export function Hero() {
                 transition={{ duration: 1.2, delay: 0.3, ease }}
                 className="rounded-2xl bg-gradient-to-b from-gold/50 to-gold/0 p-px shadow-[0_40px_120px_-30px_rgba(198,161,91,0.45)]"
               >
-                <ProjectMockup variant="automotive" />
+                <ProjectMockup variant="luxury" />
               </motion.div>
             </div>
           </div>

@@ -15,8 +15,32 @@ import {
   Sparkles,
   Wrench,
   LayoutTemplate,
+  Car,
+  Scissors,
+  Store,
+  UtensilsCrossed,
+  House,
+  Briefcase,
+  ShoppingCart,
+  Landmark,
   type LucideIcon,
 } from "lucide-react";
+import { formatPrice, planOptionLabels, plans } from "./pricing";
+
+/* ------------------------------------------------------------------ */
+/* Industries                                                          */
+/* ------------------------------------------------------------------ */
+
+export const industries: { icon: LucideIcon; name: string; body: string }[] = [
+  { icon: Car, name: "Automotive", body: "Detailing, dealerships and auto services that need bookings and visual proof." },
+  { icon: Scissors, name: "Beauty & Wellness", body: "Salons, spas and clinics where online booking and ambience matter." },
+  { icon: Store, name: "Retail", body: "Boutiques and showrooms connecting in-store experience with online discovery." },
+  { icon: UtensilsCrossed, name: "Restaurants & Hospitality", body: "Menus, reservations and atmosphere that bring guests through the door." },
+  { icon: House, name: "Real Estate", body: "Agents and brokerages showcasing listings and building personal brands." },
+  { icon: Briefcase, name: "Professional Services", body: "Law, accounting and consulting firms that win on credibility and clarity." },
+  { icon: ShoppingCart, name: "E-commerce", body: "Shopify and online stores engineered for discovery and conversion." },
+  { icon: Landmark, name: "Corporate", body: "Established companies needing structured, scalable, on-brand websites." },
+];
 
 /* ------------------------------------------------------------------ */
 /* Services                                                            */
@@ -120,14 +144,14 @@ export const services: Service[] = [
     short:
       "Ongoing care that keeps your site secure, fast and current — so you can focus on running your business.",
     intro:
-      "Launch is the beginning, not the end. We offer flexible maintenance covering updates, backups, monitoring, performance tuning and content changes, keeping your website healthy as your business evolves.",
+      `Launch is the beginning, not the end. Our monthly care plans cover updates, backups, security, monitoring, performance and content changes, keeping your website healthy as your business evolves. Plans start at ${formatPrice(plans[0].price)}/month — see Pricing for full details.`,
     benefits: [
       "Regular updates and security patches",
       "Backups and uptime monitoring",
       "Performance and speed optimization",
       "Priority help with content and small changes",
     ],
-    deliverables: ["Monthly care plan", "Performance audits", "Update reports", "Support requests"],
+    deliverables: [...plans.map((p) => `${p.name} · ${formatPrice(p.price)}/mo`), "Month-to-month"],
   },
 ];
 
@@ -232,34 +256,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "automotive-detailing",
-    variant: "automotive",
-    name: "Obsidian Auto Studio",
-    category: "Automotive detailing · Website concept",
-    summary:
-      "A high-impact website concept for a premium auto detailing studio, built around service packages and effortless online booking.",
-    brief:
-      "Design a website for a fictional high-end detailing studio in the GTA that needs to communicate craftsmanship, justify premium pricing and turn visitors into booked appointments.",
-    approach: [
-      "Dark, cinematic visual language that mirrors a freshly finished paint surface",
-      "Tiered service packages presented side by side for easy comparison",
-      "A short, three-step booking flow surfaced from every page",
-      "Before/after gallery layout designed for strong visual proof",
-    ],
-    features: [
-      "Service package comparison",
-      "Booking request flow",
-      "Before & after gallery",
-      "Mobile-first layout",
-    ],
-    stack: ["Next.js", "Tailwind CSS", "Booking integration (e.g. Calendly)"],
-    palette: [
-      { name: "Graphite", hex: "#0E0F11" },
-      { name: "Gloss", hex: "#E8E8E8" },
-      { name: "Signal Gold", hex: "#C6A15B" },
-    ],
-  },
-  {
     slug: "luxury-ecommerce",
     variant: "luxury",
     name: "Maison Vale",
@@ -315,6 +311,34 @@ export const projects: Project[] = [
       { name: "Harbour Gold", hex: "#C6A15B" },
     ],
   },
+  {
+    slug: "automotive-detailing",
+    variant: "automotive",
+    name: "Obsidian Auto Studio",
+    category: "Automotive detailing · Website concept",
+    summary:
+      "A high-impact website concept for a premium auto detailing studio, built around service packages and effortless online booking.",
+    brief:
+      "Design a website for a fictional high-end detailing studio in the GTA that needs to communicate craftsmanship, justify premium pricing and turn visitors into booked appointments.",
+    approach: [
+      "Dark, cinematic visual language that mirrors a freshly finished paint surface",
+      "Tiered service packages presented side by side for easy comparison",
+      "A short, three-step booking flow surfaced from every page",
+      "Before/after gallery layout designed for strong visual proof",
+    ],
+    features: [
+      "Service package comparison",
+      "Booking request flow",
+      "Before & after gallery",
+      "Mobile-first layout",
+    ],
+    stack: ["Next.js", "Tailwind CSS", "Booking integration (e.g. Calendly)"],
+    palette: [
+      { name: "Graphite", hex: "#0E0F11" },
+      { name: "Gloss", hex: "#E8E8E8" },
+      { name: "Signal Gold", hex: "#C6A15B" },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
@@ -326,7 +350,8 @@ export function getProject(slug: string) {
 /* ------------------------------------------------------------------ */
 
 export const serviceOptions = [
-  ...services.map((s) => s.title),
+  ...services.filter((s) => s.id !== "maintenance").map((s) => s.title),
+  ...planOptionLabels,
   "Not sure yet",
 ];
 

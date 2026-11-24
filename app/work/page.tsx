@@ -9,7 +9,7 @@ import { ProjectCard } from "@/components/work/ProjectCard";
 export const metadata: Metadata = {
   title: "Selected Work",
   description:
-    "Independent design concepts demonstrating our approach to automotive, luxury e-commerce and corporate websites.",
+    "Independent design concepts demonstrating our approach across e-commerce, corporate and service-business websites.",
 };
 
 export default function WorkPage() {

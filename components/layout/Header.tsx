@@ -47,7 +47,7 @@ export function Header() {
       <div className="container-x flex h-20 items-center justify-between">
         <Logo />
 
-        <nav aria-label="Primary" className="hidden items-center gap-10 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex xl:gap-10">
           {site.nav.map((item) => (
             <Link
               key={item.href}
@@ -71,7 +71,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="group hidden items-center gap-2 rounded-full border border-gold/50 px-5 py-2.5 text-sm font-semibold text-gold-light transition-all duration-500 ease-luxe hover:bg-gold hover:text-ink md:inline-flex"
+            className="group hidden items-center gap-2 rounded-full border border-gold/50 px-5 py-2.5 text-sm font-semibold text-gold-light transition-all duration-500 ease-luxe hover:bg-gold hover:text-ink lg:inline-flex"
           >
             Start a project
             <ArrowUpRight aria-hidden className="size-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -82,7 +82,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="grid size-11 place-items-center rounded-full border border-white/15 text-white transition-colors hover:border-gold/60 md:hidden"
+            className="grid size-11 place-items-center rounded-full border border-white/15 text-white transition-colors hover:border-gold/60 lg:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -98,7 +98,7 @@ export function Header() {
             animate={{ opacity: 1, height: "calc(100dvh - 5rem)" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden bg-ink md:hidden"
+            className="overflow-hidden bg-ink lg:hidden"
           >
             <ul className="container-x flex flex-col gap-1 pt-8">
               {[...site.nav, { label: "Contact", href: "/contact" }].map((item, i) => (

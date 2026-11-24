@@ -53,9 +53,15 @@ export default function ServicesPage() {
                 </h2>
                 <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">{s.intro}</p>
                 <div className="mt-8">
-                  <Button href={`/contact?service=${encodeURIComponent(s.title)}`} variant="ghost">
-                    Enquire about {s.title.split(" ")[0]}
-                  </Button>
+                  {s.id === "maintenance" ? (
+                    <Button href="/pricing#plans" variant="ghost">
+                      View care plans
+                    </Button>
+                  ) : (
+                    <Button href={`/contact?service=${encodeURIComponent(s.title)}`} variant="ghost">
+                      Enquire about {s.title.split(" ")[0]}
+                    </Button>
+                  )}
                 </div>
               </Reveal>
 

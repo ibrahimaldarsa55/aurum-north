@@ -60,6 +60,11 @@ export default function AboutPage() {
               communication, quick decisions and genuine accountability.
             </p>
             <p>
+              We work across industries — from automotive, beauty and hospitality to retail, real estate,
+              professional services, e-commerce and corporate businesses — adapting each website to how
+              that sector&apos;s customers research and buy.
+            </p>
+            <p>
               Based in {site.location.city}, {site.location.region}, we work with {site.location.serviceArea},
               collaborating comfortably online across time zones.
             </p>

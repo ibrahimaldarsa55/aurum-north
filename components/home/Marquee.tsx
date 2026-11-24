@@ -6,6 +6,7 @@ const items = [
   "Brand identity",
   "Performance",
   "Care plans",
+  "Every industry",
 ];
 
 /** Slow, decorative ticker. Pauses on hover; disabled for reduced-motion users. */
