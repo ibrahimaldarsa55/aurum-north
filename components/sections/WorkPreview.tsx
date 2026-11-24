@@ -3,6 +3,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ProjectCard } from "@/components/work/ProjectCard";
+import { ConceptFootnote } from "@/components/work/ConceptFootnote";
 
 export function WorkPreview() {
   const [first, ...rest] = projects;
@@ -38,6 +39,7 @@ export function WorkPreview() {
             </Reveal>
           ))}
         </div>
+        <ConceptFootnote />
       </div>
     </section>
   );
