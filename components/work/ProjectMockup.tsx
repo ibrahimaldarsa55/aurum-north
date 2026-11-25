@@ -37,7 +37,7 @@ function Automotive() {
   return (
     <div className="relative flex h-full flex-col bg-[#0E0F11] text-white">
       <div className="flex items-center justify-between px-[5%] py-[3%]">
-        <span className="text-[clamp(6px,2.4cqw,22px)] font-bold tracking-[0.3em]">OBSIDIAN</span>
+        <span className="text-[clamp(6px,2.4cqw,22px)] font-bold tracking-[0.3em] whitespace-nowrap">NOCTURNE</span>
         <div className="flex gap-[6%]">
           {[0, 1, 2].map((i) => (
             <span key={i} className="h-[3px] w-6 rounded bg-white/25" />

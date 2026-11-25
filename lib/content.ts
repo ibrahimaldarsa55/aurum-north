@@ -317,7 +317,8 @@ export const projects: Project[] = [
   {
     slug: "automotive-detailing",
     variant: "automotive",
-    name: "Obsidian Auto Studio",
+    name: "Nocturne Atelier",
+    liveUrl: "https://vercel.app",
     category: "Automotive detailing · Website concept",
     summary:
       "A high-impact website concept for a premium auto detailing studio, built around service packages and effortless online booking.",
