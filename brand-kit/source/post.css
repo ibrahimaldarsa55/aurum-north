@@ -1,0 +1,89 @@
+/* Shared styles for 1080x1080 Instagram posts. Brand: obsidian #080808, champagne gold #C6A15B. */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600&display=block");
+
+:root {
+  --ink: #080808;
+  --ink-2: #111111;
+  --gold: #c6a15b;
+  --gold-light: #e5c98b;
+  --muted: #a0a0a0;
+  --line: rgba(255, 255, 255, 0.09);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { width: 1080px; height: 1080px; overflow: hidden; background: var(--ink); }
+
+body {
+  position: relative;
+  color: #fff;
+  font-family: "Manrope", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.glow {
+  position: absolute; border-radius: 50%; filter: blur(140px); pointer-events: none;
+  background: rgba(198, 161, 91, 0.22);
+}
+
+.frame {
+  position: absolute; inset: 36px; border: 1px solid rgba(198, 161, 91, 0.28); pointer-events: none;
+}
+
+.content { position: absolute; inset: 0; padding: 84px 88px; display: flex; flex-direction: column; }
+
+.brand { display: flex; align-items: center; gap: 18px; }
+.brand img { height: 54px; }
+.brand span {
+  font-family: "Cormorant Garamond", serif; font-size: 26px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: #fff;
+}
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 16px;
+  font-size: 15px; font-weight: 600; letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold);
+}
+.eyebrow::before { content: ""; width: 44px; height: 1px; background: var(--gold); opacity: 0.8; }
+
+.display {
+  font-family: "Cormorant Garamond", serif; font-weight: 500; line-height: 0.98; letter-spacing: -0.01em;
+}
+.gold-text {
+  background: linear-gradient(110deg, #c6a15b 0%, #e5c98b 45%, #c6a15b 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-style: italic; font-weight: 400;
+}
+
+.lead { font-size: 25px; line-height: 1.5; color: var(--muted); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.chip {
+  border: 1px solid var(--line); background: rgba(255, 255, 255, 0.03); border-radius: 999px;
+  padding: 11px 20px; font-size: 16px; color: rgba(255, 255, 255, 0.82);
+}
+
+.footer {
+  margin-top: auto; display: flex; justify-content: space-between; align-items: center;
+  font-size: 15px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255, 255, 255, 0.55);
+}
+.footer .accent { color: var(--gold-light); }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(198, 161, 91, 0.45);
+  border-radius: 999px; padding: 9px 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--gold-light); background: rgba(198, 161, 91, 0.06);
+}
+.pill i { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+/* Browser frame around a live-site screenshot */
+.browser {
+  border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #151515; box-shadow: 0 50px 120px -40px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(198, 161, 91, 0.18);
+}
+.browser .bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.browser .bar b { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); }
+.browser .bar span {
+  margin-left: 14px; flex: 1; max-width: 420px; height: 22px; border-radius: 999px; background: rgba(255, 255, 255, 0.06);
+  font-size: 12px; line-height: 22px; padding-left: 14px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.02em;
+}
+.browser img { display: block; width: 100%; }

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <title>Aurum North — monogram (Instagram profile)</title>
+  <defs>
+    <!-- One gradient across the whole mark (user space), so every stroke shares it -->
+    <linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="352" y1="214" x2="700" y2="720">
+      <stop offset="0" stop-color="#E5C98B"/>
+      <stop offset="0.5" stop-color="#C6A15B"/>
+      <stop offset="1" stop-color="#A88544"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.45" r="0.7">
+      <stop offset="0" stop-color="#141210"/>
+      <stop offset="1" stop-color="#080808"/>
+    </radialGradient>
+    <!-- Letter strokes run past cap height and baseline and are trimmed flat here -->
+    <clipPath id="letter-band" clipPathUnits="userSpaceOnUse">
+      <rect x="0" y="360" width="1080" height="360"/>
+    </clipPath>
+  </defs>
+
+  <!-- Deep matte obsidian background -->
+  <rect width="1080" height="1080" fill="#080808"/>
+  <rect width="1080" height="1080" fill="url(#vignette)"/>
+
+  <!-- Frame rings: well inside Instagram's circular crop (radius 540) -->
+  <circle cx="540" cy="540" r="372" fill="none" stroke="#C6A15B" stroke-opacity="0.55" stroke-width="3"/>
+  <circle cx="540" cy="540" r="352" fill="none" stroke="#C6A15B" stroke-opacity="0.18" stroke-width="1.5"/>
+
+  <!--
+    Monogram "AN": the A's right leg is also the N's first stem.
+    Strokes: A leg ( / ), shared stem ( | ), N diagonal ( \ ), N stem ( | ).
+    A North Star crowns the final N stem.
+  -->
+  <g transform="translate(17 73)">
+    <g clip-path="url(#letter-band)" fill="none" stroke="url(#gold)" stroke-width="30">
+      <path d="M366.7 760 L513.3 320"/>  <!-- A leg -->
+      <path d="M500 320 L500 760"/>      <!-- shared A/N stem -->
+      <path d="M478 320 L698 760"/>      <!-- N diagonal -->
+      <path d="M680 320 L680 760"/>      <!-- N stem -->
+    </g>
+    <!-- A crossbar, finer for an architectural feel -->
+    <path d="M418 596 L500 596" stroke="url(#gold)" stroke-width="12"/>
+    <!-- North Star: four-point compass star with a long north ray -->
+    <path d="M680 214 L690 286 L716 296 L690 306 L680 334 L670 306 L644 296 L670 286 Z" fill="url(#gold)"/>
+  </g>
+</svg>

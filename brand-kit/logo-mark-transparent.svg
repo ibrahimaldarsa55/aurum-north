@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="560" viewBox="320 190 420 560">
+  <title>Aurum North — monogram mark (transparent)</title>
+  <!--
+    Mark only: no background or frame rings. Use on dark backgrounds,
+    in watermarks, on story covers and anywhere the gold "AN" should stand alone.
+  -->
+  <defs>
+    <linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="352" y1="214" x2="700" y2="720">
+      <stop offset="0" stop-color="#E5C98B"/>
+      <stop offset="0.5" stop-color="#C6A15B"/>
+      <stop offset="1" stop-color="#A88544"/>
+    </linearGradient>
+    <clipPath id="letter-band" clipPathUnits="userSpaceOnUse">
+      <rect x="0" y="360" width="1080" height="360"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#letter-band)" fill="none" stroke="url(#gold)" stroke-width="30">
+    <path d="M366.7 760 L513.3 320"/>  <!-- A leg -->
+    <path d="M500 320 L500 760"/>      <!-- shared A/N stem -->
+    <path d="M478 320 L698 760"/>      <!-- N diagonal -->
+    <path d="M680 320 L680 760"/>      <!-- N stem -->
+  </g>
+  <path d="M418 596 L500 596" stroke="url(#gold)" stroke-width="12"/>
+  <path d="M680 214 L690 286 L716 296 L690 306 L680 334 L670 306 L644 296 L670 286 Z" fill="url(#gold)"/>
+</svg>
