@@ -261,7 +261,7 @@ export const projects: Project[] = [
     slug: "luxury-ecommerce",
     variant: "luxury",
     name: "Halden & Vale",
-    liveUrl: "https://vercel.app",
+    liveUrl: "https://halden-vale-store.vercel.app",
     category: "Luxury e-commerce · Shopify concept",
     summary:
       "An editorial Shopify storefront concept for a luxury leather-goods label, pairing magazine-style storytelling with a refined shopping experience.",
@@ -318,7 +318,7 @@ export const projects: Project[] = [
     slug: "automotive-detailing",
     variant: "automotive",
     name: "Nocturne Atelier",
-    liveUrl: "https://vercel.app",
+    liveUrl: "https://nocturne-atelier-detailing.vercel.app",
     category: "Automotive detailing · Website concept",
     summary:
       "A high-impact website concept for a premium auto detailing studio, built around service packages and effortless online booking.",
