@@ -100,48 +100,106 @@ function Automotive() {
   );
 }
 
-/* --- Luxury e-commerce ---------------------------------------------- */
+/* --- Luxury e-commerce: architectural objects & lighting ------------ */
+const objectTiles: { bg: string; label: string; svg: React.ReactNode }[] = [
+  {
+    bg: "#D9D3C6",
+    label: "Vessel",
+    svg: <path d="M40 18 Q30 40 32 62 Q34 82 50 84 Q66 82 68 62 Q70 40 60 18 Z" fill="#6B5236" />,
+  },
+  {
+    bg: "#C9BFAE",
+    label: "Lounge chair",
+    svg: (
+      <g fill="#2A2927">
+        <path d="M22 30 Q22 22 30 22 L44 22 Q50 22 50 30 L52 58 L24 58 Z" />
+        <rect x="20" y="56" width="62" height="12" rx="4" />
+        <rect x="26" y="68" width="3" height="16" />
+        <rect x="73" y="68" width="3" height="16" />
+      </g>
+    ),
+  },
+  {
+    bg: "#E6E0D4",
+    label: "Task lamp",
+    svg: (
+      <g stroke="#2A2927" strokeWidth="3" fill="none">
+        <path d="M34 84 L66 84" />
+        <path d="M44 84 L40 50 L62 30" />
+        <path d="M56 22 L74 36 L66 44 Z" fill="#6B5236" stroke="none" />
+      </g>
+    ),
+  },
+  {
+    bg: "#8F7556",
+    label: "Oak stool",
+    svg: (
+      <g fill="#2A2927">
+        <rect x="26" y="36" width="48" height="10" rx="3" />
+        <rect x="32" y="46" width="5" height="38" />
+        <rect x="63" y="46" width="5" height="38" />
+        <rect x="32" y="66" width="36" height="3" />
+      </g>
+    ),
+  },
+];
+
 function Luxury() {
   return (
-    <div className="flex h-full flex-col bg-[#F4EFE6] text-[#2A211B]">
-      <div className="flex items-center justify-between border-b border-[#2A211B]/10 px-[5%] py-[2.5%]">
+    <div className="flex h-full flex-col bg-[#EDE8DE] text-[#2A2927]">
+      <div className="flex items-center justify-between border-b border-[#2A2927]/10 px-[5%] py-[2.5%]">
         <div className="flex gap-2">
-          <span className="h-[3px] w-5 rounded bg-[#2A211B]/40" />
-          <span className="h-[3px] w-5 rounded bg-[#2A211B]/40" />
+          <span className="h-[3px] w-5 rounded bg-[#2A2927]/40" />
+          <span className="h-[3px] w-5 rounded bg-[#2A2927]/40" />
         </div>
         <span className="font-display text-[clamp(8px,3.3cqw,32px)] tracking-[0.25em] whitespace-nowrap">HALDEN &amp; VALE</span>
-        <span className="relative size-[clamp(8px,2.6cqw,28px)] rounded-sm border border-[#2A211B]/60">
-          <span className="absolute -top-1 -right-1 size-1.5 rounded-full bg-[#B08D57]" />
+        <span className="relative size-[clamp(8px,2.6cqw,28px)] rounded-sm border border-[#2A2927]/60">
+          <span className="absolute -top-1 -right-1 size-1.5 rounded-full bg-[#C6A15B]" />
         </span>
       </div>
       <div className="grid flex-1 grid-cols-5 gap-[3%] p-[4%]">
         <div className="col-span-2 flex flex-col justify-center">
-          <p className="text-[clamp(5px,1.7cqw,18px)] tracking-[0.3em] text-[#B08D57] uppercase">Autumn Edit</p>
-          <p className="mt-2 font-display text-[clamp(12px,5.7cqw,60px)] leading-[1.02] italic">
-            Crafted to be
+          <p className="text-[clamp(5px,1.7cqw,18px)] tracking-[0.3em] text-[#6B5236] uppercase">Slow design</p>
+          <p className="mt-2 font-display text-[clamp(12px,5.2cqw,56px)] leading-[1.02] italic">
+            Objects built
             <br />
-            carried for life.
+            to be lived with.
           </p>
-          <span className="mt-3 inline-block w-fit border-b border-[#2A211B] pb-0.5 text-[clamp(5px,1.8cqw,18px)] tracking-[0.2em] uppercase">
-            Shop the collection
+          <span className="mt-3 inline-block w-fit border-b border-[#2A2927] pb-0.5 text-[clamp(5px,1.8cqw,18px)] tracking-[0.2em] uppercase">
+            Curated pieces
           </span>
         </div>
-        <div className="relative col-span-3 overflow-hidden rounded-sm bg-gradient-to-br from-[#d9cbb4] to-[#bfa685]">
-          {/* Stylized handbag */}
-          <svg viewBox="0 0 200 160" className="absolute inset-0 m-auto h-[80%] w-[80%]">
-            <path d="M70 60 Q70 22 100 22 Q130 22 130 60" fill="none" stroke="#2A211B" strokeWidth="5" />
-            <rect x="40" y="58" width="120" height="86" rx="10" fill="#5b3f2c" />
-            <rect x="40" y="58" width="120" height="30" rx="10" fill="#6d4b34" />
-            <rect x="92" y="80" width="16" height="12" rx="2" fill="#E5C98B" />
-            <path d="M48 140 L152 140" stroke="#3e2a1e" strokeWidth="2" />
+        <div className="relative col-span-3 overflow-hidden rounded-sm bg-gradient-to-b from-[#2A2927] to-[#3a332b]">
+          {/* Stylized globe pendant with warm glow */}
+          <svg viewBox="0 0 200 160" className="absolute inset-0 m-auto h-[90%] w-[90%]">
+            <defs>
+              <radialGradient id="hv-glow" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stopColor="#E5C98B" stopOpacity="0.55" />
+                <stop offset="1" stopColor="#E5C98B" stopOpacity="0" />
+              </radialGradient>
+              <radialGradient id="hv-globe" cx="0.4" cy="0.35" r="0.7">
+                <stop offset="0" stopColor="#FFF3D6" />
+                <stop offset="0.6" stopColor="#E5C98B" />
+                <stop offset="1" stopColor="#B88E52" />
+              </radialGradient>
+            </defs>
+            <line x1="100" y1="0" x2="100" y2="58" stroke="#6B5236" strokeWidth="1.5" />
+            <rect x="94" y="56" width="12" height="8" rx="1.5" fill="#6B5236" />
+            <circle cx="100" cy="96" r="70" fill="url(#hv-glow)" />
+            <circle cx="100" cy="96" r="32" fill="url(#hv-globe)" />
+            <ellipse cx="100" cy="152" rx="60" ry="4" fill="#E5C98B" opacity="0.12" />
           </svg>
         </div>
       </div>
       <div className="grid grid-cols-4 gap-[2%] px-[4%] pb-[4%]">
-        {["#cdb89a", "#a98563", "#e3d7c3", "#8b6a4f"].map((c) => (
-          <div key={c}>
-            <div className="aspect-square rounded-sm" style={{ background: c }} />
-            <span className="mt-1 block h-1 w-3/4 rounded bg-[#2A211B]/25" />
+        {objectTiles.map((t) => (
+          <div key={t.label}>
+            <div className="aspect-square rounded-sm" style={{ background: t.bg }}>
+              <svg viewBox="0 0 100 100" className="h-full w-full" role="img" aria-label={t.label}>
+                {t.svg}
+              </svg>
+            </div>
+            <span className="mt-1 block h-1 w-3/4 rounded bg-[#2A2927]/25" />
           </div>
         ))}
       </div>
