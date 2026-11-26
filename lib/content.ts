@@ -23,6 +23,8 @@ import {
   Briefcase,
   ShoppingCart,
   Landmark,
+  MonitorPlay,
+  MousePointerClick,
   type LucideIcon,
 } from "lucide-react";
 import { buildOptionLabel, formatPrice, planOptionLabels, plans, projectBuilds } from "./pricing";
@@ -345,6 +347,35 @@ export const projects: Project[] = [
   },
 ];
 
+/* ------------------------------------------------------------------ */
+/* The Aurum North Difference                                          */
+/* ------------------------------------------------------------------ */
+
+export const differences: { icon: LucideIcon; kicker: string; title: string; body: string }[] = [
+  {
+    icon: MonitorPlay,
+    kicker: "Risk-free preview",
+    title: "See Your New Homepage Live Before You Pay",
+    body: "Reserved for verified business owners and decision-makers: book a quick 10-minute discovery call and we will build a custom, clickable prototype of your new homepage and interactive quote flow before you commit a single dollar.",
+  },
+  {
+    icon: MousePointerClick,
+    kicker: "Built to convert",
+    title: "Interactive Revenue Engines, Not Brochure Sites",
+    body: "Custom package configurators and mobile booking flows engineered to turn visitors into booked appointments without phone tag.",
+  },
+  {
+    icon: Gauge,
+    kicker: "Speed, guaranteed",
+    title: "14-Day Launch Guarantee & Sub-Second Speed",
+    body: "Next.js edge engineering launched in 14 business days (or 3 months of Care Plan free).",
+  },
+];
+
+/** Plain-language conditions shown beneath the launch guarantee. Edit to match your contract. */
+export const launchGuaranteeTerms =
+  "The 14-business-day clock starts once your content and approvals are in. Applies to standard website builds scoped in your proposal.";
+
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);
 }
@@ -353,8 +384,15 @@ export function getProject(slug: string) {
 /* Contact form options                                                */
 /* ------------------------------------------------------------------ */
 
+/** Contact-form option that the "Request Your Free Live Preview" buttons preselect. */
+export const freePreviewOption = "Free Homepage Preview";
+
+/** Link to the contact form with the free homepage preview preselected. */
+export const freePreviewHref = `/contact?service=${encodeURIComponent(freePreviewOption)}`;
+
 /** Grouped "Service required" options. Links can preselect any of these via ?service=. */
 export const serviceOptionGroups: { label: string; options: string[] }[] = [
+  { label: "Free offers", options: [freePreviewOption] },
   { label: "One-time project builds", options: projectBuilds.map(buildOptionLabel) },
   { label: "Services", options: services.filter((s) => s.id !== "maintenance").map((s) => s.title) },
   { label: "Monthly care plans", options: planOptionLabels },

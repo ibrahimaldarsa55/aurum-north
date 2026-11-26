@@ -8,6 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { PlanCards } from "@/components/pricing/PlanCards";
 import { ComparisonTable } from "@/components/pricing/ComparisonTable";
 import { OneTimeProjects } from "@/components/pricing/OneTimeProjects";
+import { GuaranteeBanner } from "@/components/pricing/GuaranteeBanner";
 
 export const metadata: Metadata = {
   title: "Pricing & Plans",
@@ -41,6 +42,8 @@ export default function PricingPage() {
           </a>
         </Reveal>
       </PageHero>
+
+      <GuaranteeBanner />
 
       <section id="projects" className="scroll-mt-24 py-20 sm:py-28">
         <div className="container-x">
