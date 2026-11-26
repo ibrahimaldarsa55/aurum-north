@@ -45,7 +45,7 @@ Projects worldwide ↓
 
 Link in bio: your website's /contact page once the site is live on its domain
 (e.g. https://YOUR-DOMAIN/contact), or the Vercel address until then.
-Contact button: email arumnorth@gmail.com
+Contact button: email ibrahim@aurumnorthstudio.com
 Category: "Web Designer" or "Digital Creator"
 
 

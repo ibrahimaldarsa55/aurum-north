@@ -9,17 +9,19 @@ export const site = {
   tagline: "Digital craft for businesses worldwide",
   description:
     "Aurum North is an independent, founder-led digital agency based in Toronto, Ontario, designing and building premium websites, Shopify stores and brand identities for clients around the world.",
-  // Replace with your production domain once you have one (used for SEO / sitemap).
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example.com",
+  // Canonical production domain (used for metadataBase, OpenGraph, sitemap and robots.txt).
+  // NEXT_PUBLIC_SITE_URL overrides it, so keep that env var in sync or leave it unset.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://aurumnorthstudio.com",
   location: {
     city: "Toronto",
     region: "Ontario",
     country: "Canada",
     serviceArea: "clients around the world",
   },
-  // PLACEHOLDERS — replace with real details before launch.
+  // Displayed on the site. Form submissions are delivered to CONTACT_TO_EMAIL instead.
+  // Phone is still a placeholder.
   contact: {
-    email: "Arumnorth@gmail.com",
+    email: "ibrahim@aurumnorthstudio.com",
     phone: "+1 (000) 000-0000",
   },
   // Add real profiles here, e.g. { label: "LinkedIn", href: "https://linkedin.com/in/..." }.
